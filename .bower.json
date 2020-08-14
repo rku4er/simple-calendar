@@ -1,0 +1,17 @@
+{
+  "name": "simple-calendar",
+  "homepage": "https://github.com/rku4er/simple-calendar",
+  "version": "0.2.3",
+  "_release": "0.2.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.2.3",
+    "commit": "85a8f3d5ee77a96192a7ffeb94d062d6de0336ac"
+  },
+  "_source": "https://github.com/rku4er/simple-calendar.git",
+  "_target": "^0.2.3",
+  "_originalSource": "rku4er/simple-calendar",
+  "dependencies": {
+    "jquery-touch-events": "^2.0.3"
+  }
+}
