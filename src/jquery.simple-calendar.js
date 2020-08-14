@@ -154,7 +154,7 @@
       this.currentDate.setMonth(this.currentDate.getMonth() + value);
       this.buildCalendar(this.currentDate, $(this.element).find('.calendar'));
       this.updateHeader(this.currentDate, $(this.element).find('.calendar header'));
-      this.settings.onMonthChange(this.currentDate.getMonth(), this.currentDate.getFullYear())
+      this.settings.onMonthChange(this.currentDate.getMonth(), this.currentDate.getFullYear());
     },
     //Init global events listeners
     bindEvents: function () {
@@ -162,12 +162,22 @@
 
       //Click previous month
       $(plugin.element).on('click', '.btn-prev', function ( e ) {
-        plugin.changeMonth(-1)
+        plugin.changeMonth(-1);
+        e.preventDefault();
+      });
+
+      $(plugin.element).on('swipeleft', function ( e ) {
+        plugin.changeMonth(-1);
         e.preventDefault();
       });
 
       //Click next month
       $(plugin.element).on('click', '.btn-next', function ( e ) {
+        plugin.changeMonth(1);
+        e.preventDefault();
+      });
+
+      $(plugin.element).on('swiperight', function ( e ) {
         plugin.changeMonth(1);
         e.preventDefault();
       });
@@ -203,13 +213,13 @@
           '</div>');
 
         $event.data( 'event', event );
-        $event.click( plugin.settings.onEventSelect );
+        $event.on('click', plugin.settings.onEventSelect );
 
         // simplify further customization
         plugin.settings.onEventCreate( $event );
 
         container.append($event);
-      })
+      });
     },
     //Small effect to fillup a container
     fillUp: function (x, y) {
@@ -270,7 +280,7 @@
       formatted += this.settings.days[dateStart.getDay()] + ' - ' + dateStart.getDate() + ' ' + this.settings.months[dateStart.getMonth()].substring(0, 3);
 
       if (dateEnd.getDate() !== dateStart.getDate()) {
-        formatted += ' to ' + dateEnd.getDate() + ' ' + this.settings.months[dateEnd.getMonth()].substring(0, 3)
+        formatted += ' to ' + dateEnd.getDate() + ' ' + this.settings.months[dateEnd.getMonth()].substring(0, 3);
       }
       return formatted;
     }
