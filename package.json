@@ -1,6 +1,6 @@
 {
   "name": "simple-calendar",
-  "version": "0.0.1",
+  "version": "0.2.31",
   "description": "A jquery plugin to display a responsive calendar",
   "main": "dist/simple-calendar.min.js",
   "scripts": {
